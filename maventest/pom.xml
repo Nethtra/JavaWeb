@@ -15,11 +15,19 @@
     </properties>
 
     <!--    使用dependencies标签包裹dependency再通过坐标来引入依赖 引入完记得刷新   -->
+    <!--    现在导入abc三个maven工程举例依赖传递-->
     <dependencies>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>1.2.3</version>
+            <!--依赖范围 默认全局有效-->
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.1</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>
