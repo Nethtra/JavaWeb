@@ -16,7 +16,7 @@
 
         a {
             color: rgb(150, 148, 2);
-            /* text-decoration: none; */
+            text-decoration: none;
         }
 
         p {
@@ -116,13 +116,13 @@
 
         <h3 style="color:dimgrey">填写以下信息赠送元神大礼包</h3>
         <!-- input表单项标签通过type控制输入形式type取值查表    select下拉列表   textarea文本域 -->
-        <!-- value是表单项实际提交的值 -->
+        <!-- 表单最后实际提交的是name和value -->
         <form action="" method="post">
             姓名：<input type="text" name="username" placeholder="请输入姓名"> <br>
             密码：<input type="password" name="password" placeholder="请输入密码"><br>
             <!-- type=radio单选框 -->
             <!-- 使用label包裹type为radio的标签可以让选框范围扩大到label范围内 试一试-->
-            <!-- 要保证单选name必须一致 不然会造成多选 -->
+            <!-- 要保证单选的几个选项name必须一致 不然会造成多选 -->
             性别：<label><input type="radio" name="gender" value="1">男</label>
             <label><input type="radio" name="gender" value="2">女</label><br>
             <!-- type=checkbox复选框 -->
@@ -149,6 +149,8 @@
             上传大头照：<input type="file" name="photo"><br>
             <!-- textarea文本域 cols一行字符数  rows行数 -->
             详细家庭住址：<textarea name="address" cols="30" rows="10"></textarea><br>
+            <!-- 隐藏域，与表单一起提交 -->
+            <input type="hidden" name="hide" value="1">
             <input type="submit" value="提交">
             <input type="reset" value="重置">
             <input type="button" value="按钮">

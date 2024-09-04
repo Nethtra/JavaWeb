@@ -1,4 +1,10 @@
-web学习使用jdk11  springboot2
+前端
+HTML CSS
+JavaScript Vue
+Ajax异步交互技术
+前端工程化
+
+后端web学习使用jdk11  springboot2
 
 
 
