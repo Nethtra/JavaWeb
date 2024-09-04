@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变量</title>
+    <!-- 变量名规则与Java相同 js弱类型，变量可以存不同类型-->
+</head>
+
+<body>
+    <script>
+        // 定义方式
+        //1var  相当于全局变量   还可以重复定义  
+        {
+            var a = 1;
+            var a = "zifuchuan";
+        }
+        alert(a);//zifuchuan
+
+        //2let 局部变量  不能重复定义
+        {
+            let a = 1;
+            alert(a);//1
+        }
+        alert(a); //2
+
+        //3const 局部常量  不能重复定义  不能修改  修改会报错
+        {
+            const pi = 3.14;
+            pi = 3.14159;
+        }
+        alert(pi);//本来就局部显示不出 然后重复定义也报错
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+
+<body>
+    <!-- 先讲js自定义对象 -->
+    <script>
+        // 属性名:属性值
+        //函数名:function(){}   :function可以省略
+        var diy = {
+            name: "tom",
+            age: 18,
+            say: function () {
+                console.log("hello world");
+            }
+        }
+        //.访问
+        alert(diy.name);
+        diy.say();
+    </script>
+
+    <!-- json=js对象标记法 json就是通过json书写的文本 用作数据载体在前后端传输 -->
+    <script>
+        // 定义json 注意语法 整个userStr相当于字符串
+        var userStr = '{"name":"tom","age":10,"addr":["背景","上海"],"a":null }';
+        //前后端传输的是json字符串 但是前端需要转换为js对象才能使用
+        //json字符串转换为js对象
+        var obj = JSON.parse(userStr);
+        alert(obj.name);
+        //js对象转换为json字符串
+        var str = JSON.stringify(obj);
+        alert(str);
+    </script>
+</body>
+
+</html>

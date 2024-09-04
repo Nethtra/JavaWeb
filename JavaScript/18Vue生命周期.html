@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue生命周期</title>
+    <script src="./js/vue.js"></script>
+    <!-- 每完成一个生命周期都会调用相应的函数  而生命周期函数可以自定义  可以利用这一点完成很多功能 -->
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+
+</body>
+
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+
+        },
+        methods: {
+
+        },
+        mounted() {//生命周期方法与methods平级
+            alert("vue挂载完成，发送请求到服务端获取数据")
+        }
+    })
+</script>
+
+</html>

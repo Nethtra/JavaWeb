@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM对象案例</title>
+</head>
+
+<body>
+    <img id="h1" src="img/off.gif"> <br><br>
+
+    <div class="cls">第一行</div> <br>
+    <div class="cls">第二行</div> <br>
+
+    <input type="checkbox" name="hobby"> 电影
+    <input type="checkbox" name="hobby"> 旅游
+    <input type="checkbox" name="hobby"> 游戏
+    <br>
+</body>
+
+<!-- 练习通过元素对象操作html 对象的操作查参考手册 -->
+<script>
+    //1更改图片
+    var e1 = document.getElementById("h1");
+    e1.src = "img/on.gif";
+    //2将div标签内容加上绿色的hello
+    var e2 = document.getElementsByTagName("div");
+    for (let i = 0; i < e2.length; i++) {
+        const div = e2[i];
+        div.innerHTML += "<font color='green'>hello</font>";//说明innerHTML可以识别html标签
+    }
+    //3将复选框改为选中状态
+    var e3 = document.getElementsByName("hobby");
+    for (let i = 0; i < e3.length; i++) {
+        const hobby = e3[i];
+        hobby.checked = true;
+    }
+</script>
+
+</html>

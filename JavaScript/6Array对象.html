@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+
+<body>
+    <!-- 使用Array对象定义数组 js数组特点：长度类型都可变-->
+    <script>
+        //定义1
+        // var arr = new Array(1, 2, 3, 4, 5);
+        //定义2
+        var arr = [1, 2, 3, 4, 5];
+        arr[10] = 6;
+        arr[9] = true;
+        console.log(arr);
+        //属性 arr.length长度
+        for (let index = 0; index < arr.length; index++) {
+            console.log(arr[index]);
+        }
+        console.log("===================================");
+        //方法
+        //1forEach遍历数组有值的元素  所以undefined不会遍历  foreach参数要传入一个函数指定每次遍历后的动作
+        arr.forEach(function (e) {
+            console.log(e);
+        });
+        //简化为箭头函数 (形参列表)=>{}函数体
+        arr.forEach((e) => {
+            console.log(e);
+        });
+        //2push 在数组末尾添加元素
+        arr.push(7, 8, 9);
+        console.log(arr);
+        // //3splice 删除元素  这样删了后索引会变 剩下的元素会往前移 感觉不太好
+        // arr.splice(1, 2);//起始索引 删几个
+        // console.log(arr);
+    </script>
+
+</body>
+
+</html>

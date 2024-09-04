@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据类型</title>
+    <!-- JS虽然弱类型 但是依然有数据类型 -->
+    <!-- 分为原始类型和引用类型 -->
+    <!-- 用typeof运算符获取变量的数据类型 -->
+</head>
+
+<body>
+    <script>
+        document.write(typeof 1);
+        document.write(typeof 1.1);//只要是数字都是number
+        document.write("<br>");
+        document.write(typeof "1");//string
+        document.write("<br>");
+        document.write(typeof true);//boolean
+        document.write("<br>");
+        document.write(typeof null);//引用类型或null都是object
+        document.write("<br>");
+        var a;
+        document.write(typeof a);//未赋值的变量是undefined
+
+    </script>
+
+    <!-- 运算符 -->
+    <!-- 与Java基本相同 特殊的多出===全等不会进行类型转换  ==会进行类型转换 -->
+    <script>
+        var a = 10;
+        alert(a == "10");//true
+        alert(a === "10");//false
+    </script>
+
+    <!-- 类型转换 -->
+    <script>
+        //字符串转number
+        document.write("<br>");
+        document.write(parseInt("123"));//123
+        document.write(parseInt("12A3"));//12
+        document.write(parseInt("A123"));//NaN
+        //其他类型转boolean
+        if (-1) {
+            alert("除了0和NaN都是true")
+        }
+        if (" ") {
+            alert("除了空字符串都是true（空格不算空）")
+        }
+        if (null) {
+            alert("null和undefined都是false")
+        }
+    </script>
+</body>
+
+</html>

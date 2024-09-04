@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax原生使用</title>
+    <script src="./js/vue.js"></script>
+    <!-- Ajax 异步的js和xml   Ajax允许通过与场景后面的 Web 服务器交换数据来异步更新网页。这意味着可以更新网页的部分，而不需要重新加载整个页面。-->
+</head>
+
+<body>
+    <!-- 绑定单击事件 -->
+    <input type="button" value="获取数据" onclick="getData()">
+<div id="1"></div>
+</body>
+
+
+<script>
+    function getData() {
+        //一共三步
+        //1创建xhr对象
+        var xhr = new XMLHttpRequest();
+        //2发送异步请求
+        xhr.open("GET","https://mock.apifox.cn/m1/3128855-0-default/emp/list");//链接坏了
+        xhr.send();
+        //3处理响应数据
+        xhr.onreadystatechange =function(){//定义回调函数
+            if(xhr.readyState ==4 && xhr.status ==200){
+                document.getElementById("1").innerHTML = xhr.responseText;
+            }
+        }
+    }
+</script>
+
+</html>

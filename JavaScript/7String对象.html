@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String</title>
+</head>
+
+<body>
+    <script>
+        // 定义
+        var str = new String("hello world");
+        var str = (" hello world      ");
+        console.log(str);
+        //length
+        console.log(str.length);
+        //charAt获取指定索引位置的字符
+        console.log(str.charAt(5));
+        //indexOf获取指定字符(串)的索引位置
+        console.log(str.indexOf("or"));
+        //trim去除字符串两端的空格
+        var s = str.trim();//用一个新变量接收
+        console.log(s);
+        //substring截取字符串
+        console.log(s.substring(1, 4));//起始索引 结束索引 含头不含尾
+    </script>
+
+</body>
+
+</html>

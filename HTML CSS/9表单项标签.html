@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人介绍</title>
+    <style>
+        h2 {
+            color: rgb(0, 255, 255);
+        }
+
+        span {
+            color: grey;
+        }
+
+        a {
+            color: rgb(150, 148, 2);
+            /* text-decoration: none; */
+        }
+
+        p {
+            text-indent: 5%;
+            line-height: 30px;
+        }
+
+        div.test {
+            width: 200px;
+            height: 200px;
+            box-sizing: border-box;
+            background-color: red;
+            padding: 20px 20px 20px 20px;
+            border: 10px solid blue;
+            margin: 30px;
+
+        }
+
+        div.box {
+            width: 70%;
+            box-sizing: content-box;
+            margin: 0 auto;
+
+        }
+
+        table {
+            text-align: center;
+        }
+
+        .cls {
+            color: blueviolet;
+        }
+
+        #anid {
+            color: coral;
+            font-size: 14px;
+        }
+
+        #plast {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1 style="color: rgb(9, 255, 0);">世界上最好的地平线使用者</h1>
+        shit->
+        <img src="https://media.contentapi.ea.com/content/dam/eacom/zh-tw/common/october-ea-ring.png">
+        <hr>
+        <span>世界上最好的手柄使用者</span>
+        <hr>
+        <img src="./img/self-introduction.png">
+        <h1>快速访问：<a href="https://www.respawn.com/" target="_blank">公共厕所</a></h1>
+        <video src="./video/Apex Legends 2024.03.10 - 23.15.38.05.DVR.mp4" controls="controls" width="1080"></video>
+        <p> <strong>将近一个世纪之前</strong>，外域碰上了一场灾难性的能量危机。玛丽·萨摩斯博士是一名有魅力但有些古怪的天体物理学家，她被雇佣来寻找解决方案。玛丽将全家都搬到了奥林匹斯上的科学研究站并开始工作。
+            <br>在她的学生，里德博士的协助下，玛丽发现了布拉提恩——她认为这是一种能够提供无限能量的元素。
+        </p>
+        <p>但布拉提恩只会出现在黑洞的吸积盘上，所以玛丽博士和里德博士踏上了这个危险的任务来证明她的理论。玛丽向自己的儿子纽特承诺自己会安全回家，但里德博士却背叛了她，她不但偷走了布拉提恩，还将她的太空舱送回黑洞的轨道。
+            玛丽通过自己的机智改装了她的机器人同伴纽特来逃脱。不过黑洞内外的时间推移速度并不一样，而她晚了87年。现在，玛丽一心想要取得研究资金来寻找回到过去，与儿子团聚的方法。
+            她以引力大师地平线的名号加入了Apex竞赛，正好赶上了在这个赛季中推出的的奥林匹斯——她曾经的家，也是她承诺他要回来的地方 &nbsp; &nbsp;。
+        </p>
+        <h2>个人战绩</h2>
+        <img src="./img/personal record1.png" width="50%">
+        <img src="./img/personal record2.png" width="50%">
+        <img src="./img/personal record3.png" width="50%">
+
+        <h3 class="cls">类选择器</h3>
+        <h3 id="anid">id选择器</h3>
+        <p id="plast" style="color: grey;">之而来的风险与本站无关。版权所有，保留一切权利</p>
+
+        <div class="test">
+            AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AA如果有空格的话会自动换行不换行是因为识别为同一个单词
+        </div>
+        <h2>个人传奇数据</h2>
+        <table border="1px" width="600px" cellspacing="0">
+
+            <tr>
+                <th>使用的传奇</th>
+                <th>击杀数</th>
+                <th>伤害数</th>
+                <th>存活时间</th>
+            </tr>
+            <tr>
+                <td>Horizon</td>
+                <td>10</td>
+                <td>1000</td>
+                <td>10分钟</td>
+            </tr>
+            <tr>
+                <td>Wraith</td>
+                <td>20</td>
+                <td>2000</td>
+                <td>20分钟</td>
+
+        </table>
+
+        <h3 style="color:dimgrey">填写以下信息赠送元神大礼包</h3>
+        <!-- input表单项标签通过type控制输入形式type取值查表    select下拉列表   textarea文本域 -->
+        <!-- value是表单项实际提交的值 -->
+        <form action="" method="post">
+            姓名：<input type="text" name="username" placeholder="请输入姓名"> <br>
+            密码：<input type="password" name="password" placeholder="请输入密码"><br>
+            <!-- type=radio单选框 -->
+            <!-- 使用label包裹type为radio的标签可以让选框范围扩大到label范围内 试一试-->
+            <!-- 要保证单选name必须一致 不然会造成多选 -->
+            性别：<label><input type="radio" name="gender" value="1">男</label>
+            <label><input type="radio" name="gender" value="2">女</label><br>
+            <!-- type=checkbox复选框 -->
+            爱好：<label><input type="checkbox" name="hobby" value="java">java</label>
+            <label><input type="checkbox" name="hobby" value="python">python</label>
+            <label><input type="checkbox" name="hobby" value="c">c</label><br>
+            <!-- type=date日期  time时间 datetime-local日期时间 -->
+            出生日期：<input type="date" name="birthday"><br>
+            出生时间：<input type="time" name="birthtime"><br>
+            出生日期时间：<input type="datetime-local" name="birthdatetime"><br>
+            <!-- type=email邮箱 -->
+            邮箱：<input type="email" name="email"><br>
+            <!-- type=number数字 -->
+            年龄：<input type="number" name="age"><br>
+            <!-- select下拉列表，一项就是一个option 注意设置value  -->
+            学历：<select name="education">
+                <option value="0">请选择</option>
+                <option value="1">小学</option>
+                <option value="2">初中</option>
+                <option value="3">高中</option>
+                <option value="4">本科</option>
+            </select><br>
+            <!-- type=file上传文件 -->
+            上传大头照：<input type="file" name="photo"><br>
+            <!-- textarea文本域 cols一行字符数  rows行数 -->
+            详细家庭住址：<textarea name="address" cols="30" rows="10"></textarea><br>
+            <input type="submit" value="提交">
+            <input type="reset" value="重置">
+            <input type="button" value="按钮">
+            <!-- 可以在开发者工具中看到提交 -->
+        </form>
+    </div>
+
+</body>
+
+</html>

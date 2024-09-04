@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数</title>
+</head>
+
+<body>
+    <script>
+        // 定义函数  使用function关键字 形参不需要类型  返回也不需要指定，直接return即可
+        //方式1
+        function add(a, b) {
+            return a + b;
+        }
+        //方式2
+        var add = function (a, b) {
+            return a + b;
+        }
+        //调用 实参可以传多个
+        var result = add(10, 20, 30, 40);
+        alert(result);
+
+    </script>
+
+</body>
+
+</html>

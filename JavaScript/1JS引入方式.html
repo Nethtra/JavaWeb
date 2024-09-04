@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- script标签不能自闭合-->
+<!-- 1内部脚本  JS代码定义在script标签中 可以放在html文件中的任意位置  一般放在body底部即</body>上面改善速度 -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>引入方式</title>
+    <script>
+        alert("警告框")
+    </script>
+</head>
+
+<body>
+    <script>
+        alert("警告框")
+    </script>
+</body>
+
+</html>
+<!-- 2外部脚本 -->
+<script src="./js/1.js"></script>
+
+<script>
+    alert("警告框")
+</script>

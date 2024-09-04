@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人介绍</title>
+    <!-- 选择器有三种   注意形式  当标签被多个选择器选择时 优先级id>class>元素选择器   -->
+    <style>
+        /* 元素选择器 */
+        h2 {
+            color: rgb(0, 255, 255);
+        }
+
+        span {
+            color: grey;
+        }
+
+        /* 类选择器 */
+        .cls {
+            color: blueviolet;
+        }
+
+        /* id选择器 */
+        #anid {
+            color: coral;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="color: red;">世界上最好的地平线使用者</h1>
+    shit->
+    <img src="https://media.contentapi.ea.com/content/dam/eacom/zh-tw/common/october-ea-ring.png">
+    <hr>
+    <!-- span标签 没有任何语义的标签 因为世界上最好的手柄使用者没有标签包裹，所以不属于任何元素，就没法用css设定样式，span解决这个问题 -->
+    <span>世界上最好的手柄使用者</span>
+    <hr>
+    <img src="./img/self-introduction.png">
+
+    <h2>个人战绩</h2>
+    <img src="./img/personal record1.png" width="50%">
+    <img src="./img/personal record2.png" width="50%">
+    <img src="./img/personal record3.png" width="50%">
+
+    <!-- 类选择器需要给标签设置属性class并指定值 class在同一html可以重复 -->
+    <!-- id选择器给标签设置属性id  id不可以重复 -->
+    <h3 class="cls">类选择器</h3>
+    <h3 id="anid">id选择器</h3>
+</body>
+
+</html>

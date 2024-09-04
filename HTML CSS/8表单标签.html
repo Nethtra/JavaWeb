@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人介绍</title>
+    <style>
+        h2 {
+            color: rgb(0, 255, 255);
+        }
+
+        span {
+            color: grey;
+        }
+
+        a {
+            color: rgb(150, 148, 2);
+            /* text-decoration: none; */
+        }
+
+        p {
+            text-indent: 5%;
+            line-height: 30px;
+        }
+
+        div.test {
+            width: 200px;
+            height: 200px;
+            box-sizing: border-box;
+            background-color: red;
+            padding: 20px 20px 20px 20px;
+            border: 10px solid blue;
+            margin: 30px;
+
+        }
+
+        div.box {
+            width: 70%;
+            box-sizing: content-box;
+            margin: 0 auto;
+
+        }
+
+        table {
+            text-align: center;
+        }
+
+        .cls {
+            color: blueviolet;
+        }
+
+        #anid {
+            color: coral;
+            font-size: 14px;
+        }
+
+        #plast {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1 style="color: rgb(9, 255, 0);">世界上最好的地平线使用者</h1>
+        shit->
+        <img src="https://media.contentapi.ea.com/content/dam/eacom/zh-tw/common/october-ea-ring.png">
+        <hr>
+        <span>世界上最好的手柄使用者</span>
+        <hr>
+        <img src="./img/self-introduction.png">
+        <h1>快速访问：<a href="https://www.respawn.com/" target="_blank">公共厕所</a></h1>
+        <video src="./video/Apex Legends 2024.03.10 - 23.15.38.05.DVR.mp4" controls="controls" width="1080"></video>
+        <p> <strong>将近一个世纪之前</strong>，外域碰上了一场灾难性的能量危机。玛丽·萨摩斯博士是一名有魅力但有些古怪的天体物理学家，她被雇佣来寻找解决方案。玛丽将全家都搬到了奥林匹斯上的科学研究站并开始工作。
+            <br>在她的学生，里德博士的协助下，玛丽发现了布拉提恩——她认为这是一种能够提供无限能量的元素。
+        </p>
+        <p>但布拉提恩只会出现在黑洞的吸积盘上，所以玛丽博士和里德博士踏上了这个危险的任务来证明她的理论。玛丽向自己的儿子纽特承诺自己会安全回家，但里德博士却背叛了她，她不但偷走了布拉提恩，还将她的太空舱送回黑洞的轨道。
+            玛丽通过自己的机智改装了她的机器人同伴纽特来逃脱。不过黑洞内外的时间推移速度并不一样，而她晚了87年。现在，玛丽一心想要取得研究资金来寻找回到过去，与儿子团聚的方法。
+            她以引力大师地平线的名号加入了Apex竞赛，正好赶上了在这个赛季中推出的的奥林匹斯——她曾经的家，也是她承诺他要回来的地方 &nbsp; &nbsp;。
+        </p>
+        <h2>个人战绩</h2>
+        <img src="./img/personal record1.png" width="50%">
+        <img src="./img/personal record2.png" width="50%">
+        <img src="./img/personal record3.png" width="50%">
+
+        <h3 class="cls">类选择器</h3>
+        <h3 id="anid">id选择器</h3>
+        <p id="plast" style="color: grey;">之而来的风险与本站无关。版权所有，保留一切权利</p>
+
+        <div class="test">
+            AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AA如果有空格的话会自动换行不换行是因为识别为同一个单词
+        </div>
+        <h2>个人传奇数据</h2>
+        <table border="1px" width="600px" cellspacing="0">
+
+            <tr>
+                <th>使用的传奇</th>
+                <th>击杀数</th>
+                <th>伤害数</th>
+                <th>存活时间</th>
+            </tr>
+            <tr>
+                <td>Horizon</td>
+                <td>10</td>
+                <td>1000</td>
+                <td>10分钟</td>
+            </tr>
+            <tr>
+                <td>Wraith</td>
+                <td>20</td>
+                <td>2000</td>
+                <td>20分钟</td>
+
+        </table>
+
+        <h3 style="color:dimgrey">Sign up for Respawn's Mother's Memorial Service today!</h3>
+<!-- form表单标签 用于数据采集 属性action数据提交地址url空默认提交到当前页面  method提交方式，不设置默认为get
+1get 在url后拼接提交的表单的数据用？分隔 ?username=iamanuser&password=123456 ，有长度限制
+2post f12开发者工具  发现提交发起了一个网络请求，查看负载发现在消息体（请求体）中传递 没有长度限制     -->
+        <form action="" method="post">
+            <!-- input表单项标签 通过type控制输入形式 表单项要成功提交必须有name属性-->
+            用户名：<input type="text" name="username"  placeholder="请输入用户名"> <br>
+            密码：<input type="password" name="password"  placeholder="请输入密码">
+            <!-- type值为submit就是提交按钮 value就是按钮显示的文本 -->
+            <input type="submit" value="提交">
+        
+        </form>
+    </div>
+
+</body>
+
+</html>

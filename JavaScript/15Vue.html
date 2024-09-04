@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <!-- 1引入Vue  有点像反射，都是不修改源码，在配置文件或者vue中更改需求 -->
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 3创建视图 -->
+    <div id="app">
+        <!-- 用v-model指令绑定数据模型message -->
+        <input type="text" v-model="message">
+        <!-- 插值表达式   再显示一遍message -->
+        {{message}}
+        <!-- 当在输入框改变text时 发现后面的文本也跟着变  因为view先改变了model   然后model又改变了view   双向绑定的最好示例 -->
+    </div>
+
+</body>
+<!-- 前端框架，简化js中dom操作  基于MVVM思想，实现数据双向绑定    将关注点放在数据上 -->
+<!-- Model数据模型（包含数据及数据处理的方法）  View视图层（负责数据的展示，在html中指标签或者dom元素）  ViewModel为Vue提供的对象，通过ViewModel进行双向绑定
+       双向绑定指当Model中数据改变时ViewModel会自动更新View中的数据 反之同理 -->
+<script>
+    //2创建Vue对象
+    new Vue({
+        //注意这是两个属性 ，
+        el: "#app",//el属性指定vue接管的区域  类似于id选择器
+        data() {//data属性保存数据模型
+            return {
+                message: "hello Vue"
+            }
+        }
+        //两种写法
+        /*     data:{
+                message:"hello Vue"
+            } */
+    })
+</script>
+
+</html>

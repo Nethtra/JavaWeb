@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios案例</title>
+    <script src="./js/vue.js"></script>
+    <script src="./js/axios-0.18.0.js"></script>
+    <!-- 页面加载完成后发送异步请求加载数据渲染页面 -->
+</head>
+
+<body>
+    <div id="app">
+        <!-- 问题 属性间不用， -->
+        <table border="1" cellspacing="0" width="50%">
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>图像</th>
+                <th>性别</th>
+                <th>职位</th>
+                <th>入职日期</th>
+                <th>最后操作时间</th>
+            </tr>
+            <!-- 在第二行使用vfor -->
+            <tr align="center" v-for="(emp,index) in list">
+                <td>{{index+1}}</td>
+                <td>{{emp.name}}</td>
+                <!-- 显示图片时用vbind绑定数据 -->
+                <td><img v-bind:src="emp.image" width="70px" height="50px"></td>
+
+                <td>
+                    <span v-if="emp.gender==1">男</span>
+                    <span v-else-if="emp.gender==2">女</span>
+                </td>
+
+                <td>{{emp.job}}</td>
+                <td>{{emp.entrydate}}</td>
+                <td>{{emp.updatetime}}</td>
+
+
+            </tr>
+
+        </table>
+    </div>
+
+</body>
+
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            list: []
+        },
+        methods: {
+
+        },
+        //利用vue的生命周期
+        mounted() {//挂载完成后发送异步请求
+            alert("页面加载完成");
+            axios.get("https://mock.apifox.cn/m1/3128855-0-default/emp/list").then(result => {
+                //因为数据里还有个data字段 所以.两下
+                this.list = result.data.data;//把数据给list  然后利用vue指令vfor渲染页面
+            })
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html事件绑定</title>
+</head>
+
+<body>
+    <!--                                  设置要监听的事件为点击  然后在js中规定事件发生时执行哪个函数 -->
+    <input type="button" value="button1" onclick="on()">
+    <input type="button" id="button2" value="button2">
+
+</body>
+
+<!-- js可以监听html事件并在事件发生时执行代码 -->
+<!-- 注意事件是html的 js只是监听 -->
+<script>
+    //事件绑定
+    //1通过标签的事件属性绑定
+    function on() {
+        alert("button1 is clicked");
+    }
+    //2通过dom对象绑定
+    document.getElementById("button2").onclick = function () {//这里不能调用on不知道为什么
+        alert("button2 is clicked");
+    }
+</script>
+
+</html>

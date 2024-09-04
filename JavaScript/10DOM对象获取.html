@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM对象获取</title>
+</head>
+
+<body>
+    <img id="h1" src="img/off.gif"> <br><br>
+
+    <div class="cls">传智教育</div> <br>
+    <div class="cls">黑马程序员</div> <br>
+
+    <input type="checkbox" name="hobby"> 电影
+    <input type="checkbox" name="hobby"> 旅游
+    <input type="checkbox" name="hobby"> 游戏
+    <br>
+</body>
+
+<script>
+    // Document Object Model 文档对象模型  将标记语言的各部分封装为对象
+    //组成：document对象整个html    element对象每一个标签    attribute对象标签的属性    text对象文本   comment对象注释
+    //js通过dom能操作html
+    //获取
+    //element对象通过document对象获取，而document对象通过window对象获取
+    //1通过标签的id
+    var e1 = document.getElementById("h1");
+    document.write(e1);
+    //2通过标签名  注意这个是elements 因为有多个标签 返回的是一个数组
+    var e2 = document.getElementsByTagName("div");
+    for (let i = 0; i < e2.length; i++) {
+        document.write(e2[i]);
+    }
+    //3通过class
+    var e3 = document.getElementsByClassName("cls");
+    for (let i = 0; i < e3.length; i++) {
+        document.write(e3[i]);
+    }
+    //4通过属性name获取
+    var e4 = document.getElementsByName("hobby");
+    for (let i = 0; i < e4.length; i++) {
+        document.write(e4[i]);
+    }
+
+    //获取之后然后查参考手册用对象操作html
+    e3[0].innerHTML = "nihaoshijie";
+</script>
+
+</html>
