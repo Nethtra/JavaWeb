@@ -11,10 +11,11 @@
     <script>
         // Browser Object Model 浏览器对象模型 JS将浏览器的各个部分封装成了对象
         //1window对象
-        //一些方法
+        //方法
+        //confirm确认框
         window.alert("弹出警告框");
-        var flag = window.confirm("弹出确认框：是否确认？");//用一个变量接收来确认按下的是哪个按钮
-        alert(flag);//确认true   取消false
+        var flag = window.confirm("弹出确认框：是否确认？");//有返回值确认true   取消false，用一个变量接收来确认按下的是哪个按钮
+        alert(flag);
 
         //定时器
         var i = 0;
@@ -29,10 +30,10 @@
         }, 2000)
         //以上window.都可以省略
         
-        //2location对象  网页的地址栏
+        //2location对象  网页的地址栏对象
         //属性href 当前的url
         alert(location.href);
-        //直接赋值会自动跳转
+        //直接赋值href会自动跳转
         location.href = "https://www.baidu.com";
 
     </script>

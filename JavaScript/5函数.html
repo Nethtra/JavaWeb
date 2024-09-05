@@ -9,7 +9,7 @@
 
 <body>
     <script>
-        // 定义函数  使用function关键字 形参不需要类型  返回也不需要指定，直接return即可
+        // 定义函数  使用function关键字 由于js弱类型，所以不需要指定返回类型与形参类型，直接return即可
         //方式1
         function add(a, b) {
             return a + b;
@@ -18,7 +18,7 @@
         var add = function (a, b) {
             return a + b;
         }
-        //调用 实参可以传多个
+        //调用 实参可以传多个 实际只接收前两个
         var result = add(10, 20, 30, 40);
         alert(result);
 

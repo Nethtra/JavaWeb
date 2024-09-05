@@ -12,6 +12,7 @@
     <form onsubmit="os()" method="post">
         <input type="text" name="blur" onblur="ob()" onfocus="of()" onkeydown="ok()" onmouseover="over()" onmouseout="out()" placeholder="点击获取焦点">
         <input type="submit"  value="提交">
+        <input type="button" value="按钮" onclick="on()">
     </form>
 </body>
 
@@ -22,6 +23,9 @@
         console.log("页面加载完成");
     }
     //onclick事件：元素被点击时触发
+    function on(){
+        console.log("按钮被单击");
+    }
     //onblur事件：元素失去焦点时触发
     function ob() {
         console.log("输入框失去焦点");
@@ -48,6 +52,7 @@
     function out() {
         console.log("鼠标移出输入框");
     }
+
 </script>
 
 </html>
