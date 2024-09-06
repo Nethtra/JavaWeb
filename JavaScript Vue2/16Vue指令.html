@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue指令</title>
     <script src="./js/vue.js"></script>
+    <!-- vue指令用来将html的view绑定数据模型model -->
     <!-- vue指令必须在标签中使用 所以为了能用有时必须要span或者div -->
 </head>
 
@@ -14,29 +15,33 @@
     <div id="app">
         <!-- v-bind为html标签绑定属性值 之前是直接写死了 -->
         <a v-bind:href="url">link1</a>
+        <!-- 简写省略:之前的 -->
         <a :href="url">link2</a>
         <!-- v-model为表单建立数据双向绑定 -->
         <input type="text" v-model="url">
         <!-- v-on为html标签绑定事件 -->
         <input type="button" value="button1" v-on:click="handle()">
+        <!-- 简写 -->
         <input type="button" value="button2" @click="handle()">
         <br>
         <hr>
-        <!-- v-if 条件渲染指令 条件性渲染元素 true时渲染  -->
+        <!-- v-if 条件渲染指令 判断为true时渲染  -->
         <!-- 给input绑定age只是为了让能修改age 下面的span才是真正展示渲染指令 -->
         <!-- f12可以看到只渲染true的元素 -->
         <input type="text" placeholder="输入年龄" v-model="age">
         <span v-if="age <= 35">年轻人</span>
         <span v-else-if="age > 35 && age <= 60">中年人</span>
         <span v-else>老年人</span>
-        <!-- v-show 条件展示元素 注意与if的区别 show会渲染所有元素 但是会通过display属性控制只展示true的 -->
+        <br>
+        <!-- v-show 条件展示元素 注意与if的区别 show会渲染所有元素 但是会通过display属性控制只展示判断为true的 -->
         <input type="text" placeholder="输入年龄" v-model="age">
         <span v-show="age <= 35">年轻人</span>
         <span v-show="age > 35 && age <= 60">中年人</span>
         <span v-show="age > 60">老年人</span>
         <hr>
         <!-- v-for 遍历容器元素或对象属性 -->
-        <!-- index不需要可以不写                    插值选择器可以运算 -->
+        <!-- 利用插值表达式展示数据 -->
+        <!-- index不需要可以不写                  插值表达式内容可以为表达式 -->
         <div v-for="(addr,index) in addresses">{{index+1}}:{{addr}}</div>
         <div v-for="addr in addresses"> {{addr}} </div>
     </div>

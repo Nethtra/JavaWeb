@@ -8,6 +8,7 @@
     <title>Vue生命周期</title>
     <script src="./js/vue.js"></script>
     <!-- 每完成一个生命周期都会调用相应的函数  而生命周期函数可以自定义  可以利用这一点完成很多功能 -->
+    <!-- 常用mounted，挂载完成 -->
 </head>
 
 <body>
@@ -28,7 +29,7 @@
 
         },
         mounted() {//生命周期方法与methods平级
-            alert("vue挂载完成，发送请求到服务端获取数据")
+            alert("vue挂载完成，发送请求到服务端获取数据");
         }
     })
 </script>
