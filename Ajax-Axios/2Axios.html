@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Axios</title>
     <script src="./js/vue.js"></script>
+    <!-- 注意要先引入.js -->
     <script src="./js/axios-0.18.0.js"></script>
     <!-- Axios对原生Ajax封装 简化了书写 -->
 </head>
@@ -23,15 +24,15 @@
     //通过axios发送异步请求简化
     //发送get请求
     function get() {
-        /*         axios({//{}里面是一个对象
+        /*         axios({//要传入一个对象
                     method: "get",//请求方式
-                    url: "https://mock.apifox.cn/m1/3128855-0-default/emp/list"//传递参数在url后接?
-                }).then(result => {//（）then定义回调函数  用result对象接收返回的数据  data中封装的就是数据
+                    url: "https://mock.apifox.cn/m1/3128855-0-default/emp/list"//如果有请求参数在url后接?
+                }).then(result => {//（）then定义回调函数，请求成功之后会自动调用  用result对象接收返回的数据  data中封装的就是数据
                     console.log(result.data);
                 }) */
 
         //简化  请求方式别名
-        axios.get("https://mock.apifox.cn/m1/3128855-0-default/emp/list").then(result => {
+        axios.get("https://mock.apifox.cn/m1/3128855-0-default/emp/list").then((result) => {
             console.log(result.data);
         })
     }
@@ -40,8 +41,8 @@
     function post() {
         /*         axios({
                     method: "post",
-                    url: "https://mock.apifox.cn/m1/3128855-0-default/emp/deleteById",//直接打开链接无效，因为浏览器打开所有网页的方式都是get
-                    data: "id=1"//因为post在消息体中传数据，所以要用data指明传递的数据
+                    url: "https://mock.apifox.cn/m1/3128855-0-default/emp/deleteById",//直接打开链接无效，因为浏览器打开所有网页的方式都是get 而这个链接是post方式
+                    data: "id=1"//因为post在消息体中传数据，所以要用data指明请求参数
                 }).then(result => {
                     console.log(result.data);
                 }) */

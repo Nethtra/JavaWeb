@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Axios案例</title>
     <script src="./js/vue.js"></script>
+    <!-- 注意要先引入.js -->
     <script src="./js/axios-0.18.0.js"></script>
     <!-- 页面加载完成后发送异步请求加载数据渲染页面 -->
 </head>
@@ -24,18 +25,19 @@
                 <th>入职日期</th>
                 <th>最后操作时间</th>
             </tr>
+            <!-- 2拿到数据后渲染展示 -->
             <!-- 在第二行使用vfor -->
             <tr align="center" v-for="(emp,index) in list">
                 <td>{{index+1}}</td>
                 <td>{{emp.name}}</td>
                 <!-- 显示图片时用vbind绑定数据 -->
                 <td><img v-bind:src="emp.image" width="70px" height="50px"></td>
-
+                <!-- vif判断男女 -->
                 <td>
                     <span v-if="emp.gender==1">男</span>
                     <span v-else-if="emp.gender==2">女</span>
                 </td>
-
+                <!-- 剩余的使用插值表达式 -->
                 <td>{{emp.job}}</td>
                 <td>{{emp.entrydate}}</td>
                 <td>{{emp.updatetime}}</td>
@@ -53,17 +55,18 @@
     new Vue({
         el: "#app",
         data: {
-            list: []
+            list: []//
         },
         methods: {
 
         },
         //利用vue的生命周期
-        mounted() {//挂载完成后发送异步请求
+        mounted() {//1挂载完成后发送异步请求
             alert("页面加载完成");
             axios.get("https://mock.apifox.cn/m1/3128855-0-default/emp/list").then(result => {
-                //因为数据里还有个data字段 所以.两下
-                this.list = result.data.data;//把数据给list  然后利用vue指令vfor渲染页面
+                //只需要data，因为数据里的属性名也叫data 所以.两下
+                //this代表当前对象即vue对象
+                this.list = result.data.data;//data是一个数组，要用一个数组接收  然后利用vue指令vfor渲染页面
             })
         }
     })
