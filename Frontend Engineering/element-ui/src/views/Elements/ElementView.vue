@@ -18,13 +18,10 @@
     <br />
 
     <!-- 表格 -->
-    <el-table
-      :data="tableData"
-      style="width: 100%"
-      :row-class-name="tableRowClassName">
-      <el-table-column prop="date" label="日期" width="180"> </el-table-column>
-      <el-table-column prop="name" label="姓名" width="180"> </el-table-column>
-      <el-table-column prop="address" label="地址"> </el-table-column>
+    <el-table :data="tableData" style="width: 100%" :row-class-name="tableRowClassName">
+      <el-table-column prop="date" label="日期" width="180"></el-table-column>
+      <el-table-column prop="name" label="姓名" width="180"></el-table-column>
+      <el-table-column prop="address" label="地址"></el-table-column>
     </el-table>
     <br />
 
@@ -35,54 +32,45 @@
       @current-change="handleCurrentChange"
       background
       layout="sizes,prev, pager, next,jumper,total"
-      :total="1000">
-    </el-pagination>
+      :total="1000"
+    ></el-pagination>
     <br />
     <br />
 
     <!-- 对话框 -->
     <!-- 注意数据模型也要复制 -->
     <!-- 原理就是控制dialogTableVisible属性 绑定单击事件 当按下button后设置为true显示dialog -->
-    <el-button type="text" @click="dialogTableVisible = true"
-      >打开嵌套表格的 Dialog</el-button
-    >
+    <el-button type="text" @click="dialogTableVisible = true">打开嵌套表格的 Dialog</el-button>
 
     <el-dialog title="收货地址" :visible.sync="dialogTableVisible">
       <el-table :data="gridData">
-        <el-table-column
-          property="date"
-          label="日期"
-          width="150"></el-table-column>
-        <el-table-column
-          property="name"
-          label="姓名"
-          width="200"></el-table-column>
+        <el-table-column property="date" label="日期" width="150"></el-table-column>
+        <el-table-column property="name" label="姓名" width="200"></el-table-column>
         <el-table-column property="address" label="地址"></el-table-column>
       </el-table>
     </el-dialog>
 
-
     <!-- 表单（用dialog打开的） -->
     <el-button type="text" @click="dialogFormVisible = true">打开嵌套表单的 Dialog</el-button>
 
-<el-dialog title="收货地址" :visible.sync="dialogFormVisible">
-  <el-form :model="form">
-    <el-form-item label="活动名称" :label-width="formLabelWidth">
-      <el-input v-model="form.name" autocomplete="off"></el-input>
-    </el-form-item>
-    <el-form-item label="活动区域" :label-width="formLabelWidth">
-      <el-select v-model="form.region" placeholder="请选择活动区域">
-        <el-option label="区域一" value="shanghai"></el-option>
-        <el-option label="区域二" value="beijing"></el-option>
-      </el-select>
-    </el-form-item>
-  </el-form>
-  <div slot="footer" class="dialog-footer">
-    <el-button @click="dialogFormVisible = false">取 消</el-button>
-    <!-- 提交绑定单击事件 -->
-    <el-button type="primary" @click="onSubmit()">提交</el-button>
-  </div>
-</el-dialog>
+    <el-dialog title="收货地址" :visible.sync="dialogFormVisible">
+      <el-form :model="form">
+        <el-form-item label="活动名称" :label-width="formLabelWidth">
+          <el-input v-model="form.name" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="活动区域" :label-width="formLabelWidth">
+          <el-select v-model="form.region" placeholder="请选择活动区域">
+            <el-option label="区域一" value="shanghai"></el-option>
+            <el-option label="区域二" value="beijing"></el-option>
+          </el-select>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">取 消</el-button>
+        <!-- 提交绑定单击事件 -->
+        <el-button type="primary" @click="onSubmit()">提交</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -108,16 +96,16 @@ export default {
   data() {
     return {
       form: {
-          name: '',
-          region: '',
-          date1: '',
-          date2: '',
-          delivery: false,
-          type: [],
-          resource: '',
-          desc: ''
-        },
-        formLabelWidth: '120px',
+        name: "",
+        region: "",
+        date1: "",
+        date2: "",
+        delivery: false,
+        type: [],
+        resource: "",
+        desc: "",
+      },
+      formLabelWidth: "120px",
       gridData: [
         {
           date: "2016-05-02",
@@ -141,7 +129,7 @@ export default {
         },
       ],
       dialogTableVisible: false,
-      dialogFormVisible:false,
+      dialogFormVisible: false,
       tableData: [
         {
           date: "2016-05-02",

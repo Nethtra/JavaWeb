@@ -1,45 +1,34 @@
 <template>
   <div>
-    <!-- 使用element-view标签  下面js会自动将自己写的.vue组件导入 即相当于导入到了根组件 -->
-  <element-view>
-
-  </element-view>
 <!-- 因为main.js默认引入根组件，所以要先在根组件引入自己的组件才能显示 -->
+    <!-- 使用element-view标签  下面js会自动将自己写的.vue组件导入 即相当于导入到了根组件 -->
+    
+    <!-- 如果要取消引入  则三个标1的地方都要取消 -->
+  <!-- 1<element-view>
 
-    <!-- <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/> -->
+  </element-view> -->
+
+
+  <!-- 实测所以这个标签的名字要跟.vue组件对应  所以.vue必须驼峰命名 -->
+  <!-- <emp-view>
+
+  </emp-view> -->
+  
+  
+  <!-- 因为最终使用的是app.vue所以在这里使用router view  根据url决定要展示的组件 -->
+  <router-view></router-view>
+
+
   </div>
 </template>
 
 <style>
-/* #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-} */
 </style>
 <script>
-import ElementView from './views/Elements/ElementView.vue'
+// import EmpView from './views/element-case-management-system/EmpView.vue'
+// 1import ElementView from './views/Elements/ElementView.vue'
 export default {
-  components: { ElementView },
+  components: { /*1ElementView,*/ /* EmpView*/ },
   
 }
 </script>

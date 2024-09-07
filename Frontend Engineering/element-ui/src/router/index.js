@@ -1,22 +1,25 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import DeptView from '../views/element-case-management-system/DeptView.vue'
 
 Vue.use(VueRouter)
 
+
+//1先配置路由表   有两种方式
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: '/dept',
+    name: 'dept',
+    component: DeptView
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/emp',
+    name: 'emp',
+    component: () => import('../views/element-case-management-system/EmpView.vue')
+  },
+  {//因为浏览器打开默认是/ 只使用上面两个打开浏览器的时候/会空白  所以将/重定向到一个url
+    path: '/',
+    redirect: '/emp'//重定向到/emp
   }
 ]
 
