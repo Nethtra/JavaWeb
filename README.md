@@ -1,23 +1,18 @@
 前端
 
-HTML CSS
+1HTML CSS
 
-JavaScript Vue
+2JavaScript Vue
 
-Ajax异步交互技术
+3Ajax-Axios
 
-前端工程化
+4前端工程化 Vue脚手架 Element
 
 后端
 学习使用jdk11  SpringBoot2
 
 
-
-**maven maventest**
-
-maventest第一个maven项目
-
-maven-projectABC为依赖传递测试
+**Maven-Project** Maven
 
 **springboot springboot-web-test**
 
