@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <!--    项目坐标-->
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.wty</groupId>
-    <artifactId>springboot-web-test</artifactId>
+    <artifactId>Request-Reponse-IOCDI</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot-web-test</name>
-    <description>springboot-web-test</description>
-
-    <!--    jdk版本-->
+    <name>Request-Reponse-IOCDI</name>
+    <description>Request-Reponse-IOCDI</description>
     <properties>
         <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring-boot.version>2.6.13</spring-boot.version>
+        <spring-boot.version>2.7.6</spring-boot.version>
     </properties>
-    <!--    默认添加的依赖-->
     <dependencies>
+        <dependency>
+            <groupId>org.dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>2.1.3</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -40,7 +41,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    <!--springboot的maven插件-->
+
     <build>
         <plugins>
             <plugin>
@@ -58,7 +59,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>com.wty.SpringbootWebTestApplication</mainClass>
+                    <mainClass>com.wty.RequestReponseIocdiApplication</mainClass>
                     <skip>true</skip>
                 </configuration>
                 <executions>
