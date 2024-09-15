@@ -9,16 +9,14 @@
 4前端工程化 Vue脚手架 Element
 
 后端
-学习使用jdk11  SpringBoot2
+jdk11  SpringBoot2
 
-**Maven-Project** Maven
+1Maven
 
-**springboot-web-test**SpringBoot web入门
+2SpringBoot web入门
 
-**请求响应 request-and-response**
+3HTTP请求响应 三层架构 IOC&DI
 
-RequestController请求
+4Mysql  DDL DML DQL 多表设计 多表查询
 
-ResponseController响应
 
-EmpController响应案例 三层架构 分层解耦
