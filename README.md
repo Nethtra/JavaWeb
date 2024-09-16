@@ -17,6 +17,8 @@ jdk11  SpringBoot2
 
 3HTTP请求响应 三层架构 IOC&DI
 
-4Mysql  DDL DML DQL 多表设计 多表查询
+4Mysql  DDL DML DQL 多表设计 多表查询 事务 索引 
+
+5Mybatis
 
 
