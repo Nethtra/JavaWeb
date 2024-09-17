@@ -19,6 +19,6 @@ jdk11  SpringBoot2
 
 4Mysql  DDL DML DQL 多表设计 多表查询 事务 索引 
 
-5Mybatis
+5SpringBoot-Mybatis CRUD操作
 
 
