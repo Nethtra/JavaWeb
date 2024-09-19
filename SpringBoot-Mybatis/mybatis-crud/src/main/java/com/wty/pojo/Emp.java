@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+//注意用包装类型
 public class Emp {
     private Integer id;
     private String username;

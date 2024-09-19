@@ -86,4 +86,19 @@ public interface EmpMapper {
     public List<Emp> selectByConditions(@Param("name") String name, @Param("gender") Short gender,
                                         @Param("begin") LocalDate begin, @Param("end") LocalDate end);
 
+    //动态sql  随着用户输入而变化的sql 比如查询 可能选择全部或者部分条件
+    //mybatis提供动态sql标签
+    //发现上面的查询的问题  字段写死 只能传入三个条件 不能动态变化
+    //7动态条件查询员工信息
+
+
+    //8动态更新员工信息
+    //之前字段写死 所以如果有部分字段没有更新  就会被设置为null
+    public void update2(Emp emp);//alt+enter直接生成标签
+
+    //9批量删除员工
+    //因为id是Integer所以用 Integer类型的集合
+    //不知道为什么一个参数还要用@Param
+    public void deleteByIds(@Param("ids") List<Integer> ids);
+
 }

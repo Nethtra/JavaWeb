@@ -3,13 +3,87 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wty.mapper.EmpMapper">
-<!--    resultType：单条记录所封装的类型  所以是Emp-->
-    <select id="selectByConditions" resultType="com.wty.pojo.Emp">
-        select *
+<!--使用sql和include减少重用sql-->
+    <sql id="commonSelect">
+        select id, username, password, name, gender, image, job, entrydate, dept_id, create_time, update_time
         from emp
-        where name like concat('%', #{name}, '%')
-          and gender = #{gender}
-          and entrydate between #{begin} and #{end}
+    </sql>
+
+    <!--    注意#注释是sql特有的 不能在这里用  只能用<>注释这里！-->
+    <!--    resultType：单条记录所封装的类型  所以是Emp-->
+    <select id="selectByConditions" resultType="com.wty.pojo.Emp">
+        <!--            6
+                        select *
+                        from emp
+                        where name like concat('%', #{name}, '%')
+                        and gender = #{gender}
+                        and entrydate between #{begin} and #{end}
+                        order by update_time desc
+
+                动态sql标签
+                if条件判断 test后面写条件 如果成立就拼接这一段sql test后面的是类中的属性
+                where 动态的决定是否使用where与and 比如前端只传递了gender就不会将and编译 如果都没传递就连where都不编译
+                set可以动态添加,
+                sql include-->
+
+        <!--7-->
+        <include refid="commonSelect"/>
+        <where>
+            <if test="name!=null">
+                name like concat('%', #{name}, '%')
+            </if>
+            <if test="gender!=null">
+                and gender = #{gender}
+            </if>
+            <if test="begin!=null and end!=null ">
+                and entrydate between #{begin} and #{end}
+            </if>
+        </where>
         order by update_time desc
     </select>
+    <!--    8-->
+    <update id="update2">
+        update emp
+        <set>
+            <if test="username!=null">
+                username=#{username},
+            </if>
+            <if test="name!=null">
+                name=#{name},
+            </if>
+            <if test="gender!=null">
+                gender=#{gender},
+            </if>
+            <if test="job!=null">
+                job=#{job},
+            </if>
+            <if test="image!=null">
+                image=#{image},
+            </if>
+            <if test="deptId!=null">
+                dept_id=#{deptId},
+            </if>
+            <if test="entryDate!=null">
+                entrydate=#{entryDate},
+            </if>
+            <if test="updateTime!=null">
+                update_time=#{updateTime},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+
+    <!--    9-->
+    <!--    collection遍历的集合
+    item 集合中的元素
+    separator遍历元素的分隔符
+    open 开始遍历的部分
+    close结束遍历的部分-->
+    <delete id="deleteByIds">
+        delete from emp where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
 </mapper>

@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.List;
 
 @SpringBootTest
@@ -26,7 +27,7 @@ class MybatisCrudApplicationTests {
     public void insertTest() {
         //先new一个对象
         Emp emp = new Emp();
-        emp.setUsername("tom1");
+        emp.setUsername("tom3");
         emp.setName("汤姆");
         emp.setGender((short) 1);
         emp.setImage("1.txt");
@@ -67,6 +68,23 @@ class MybatisCrudApplicationTests {
     public void selectByConditionsTest() {
         List<Emp> empList = empMapper.selectByConditions("张", (short) 1, LocalDate.of(2010, 1, 1), LocalDate.of(2020, 1, 1));
         System.out.println(empList);
+    }
+
+    //更改部分字段
+    @Test
+    public void update2Test() {
+        Emp emp = new Emp();
+        emp.setId(19);
+        emp.setName("汤姆大王");
+        emp.setUsername("tomking");
+        emp.setUpdateTime(LocalDateTime.now());
+        empMapper.update2(emp);
+    }
+
+    @Test
+    public void deleteByIdsTest() {
+        List<Integer> list = Arrays.asList(22, 23);
+        empMapper.deleteByIds(list);
     }
 
 }
