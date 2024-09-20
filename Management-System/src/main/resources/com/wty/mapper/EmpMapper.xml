@@ -3,10 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wty.mapper.EmpMapper">
+
+    <!--注意这个条件 name也不能为空串 不然前端没有传递name的时候也会拼接 name!=null and name!=''-->
     <select id="realPaginatedSelect" resultType="com.wty.pojo.Emp">
         select * from emp
         <where>
-            <if test="name!=null">
+            <if test="name!=null and name!='' ">
                 name like concat('%',#{name},'%')
             </if>
             <if test="gender!=null">
@@ -17,6 +19,48 @@
             </if>
         </where>
         order by update_time desc
-
     </select>
+
+
+    <!--collection的名要与mapper中的形参名一致  item随便起-->
+    <delete id="deleteById">
+        delete from emp where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+<!--虽说是用if写的  但实际上回显数据都全回显了 感觉没什么用-->
+    <update id="updateById">
+        update emp
+        <set>
+            <if test="name!=null and name!=''">
+                name=#{name},
+            </if>
+            <if test="password!=null">
+                password=#{password},
+            </if>
+            <if test="username!=null ">
+                username=#{username},
+            </if>
+            <if test="gender!=null">
+                gender=#{gender},
+            </if>
+            <if test="image!=null">
+                image=#{image},
+            </if>
+            <if test="entrydate!=null">
+                entrydate=#{entrydate},
+            </if>
+            <if test="job!=null">
+                job=#{job},
+            </if>
+            <if test="deptId!=null">
+                dept_id=#{deptId},
+            </if>
+            <if test="updateTime!=null">
+                update_time=#{updateTime}
+            </if>
+        </set>
+        where id=#{id}
+    </update>
 </mapper>

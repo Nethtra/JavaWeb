@@ -59,6 +59,7 @@ public class DeptController {
      * @param dept
      * @return
      */
+    //这里有一个问题 如果删了部门再添加的话主键是unique增长的 但前端显示的部门还是按顺序的 删除的时候要用主键id 这就对不上了
     @PostMapping("/depts")//使用RequestBody将json封装到对象中
     public Result createDept(@RequestBody Dept dept) {
         deptService.createDept(dept);

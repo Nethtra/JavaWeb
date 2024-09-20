@@ -1,16 +1,17 @@
 package com.wty.controller;
 
+import com.wty.pojo.Emp;
 import com.wty.pojo.PageBean;
 import com.wty.pojo.Result;
 import com.wty.service.EmpService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * @author 王天一
@@ -67,4 +68,62 @@ public class EmpController {
 
     }
 
+    /**
+     * 8根据id删除员工
+     *
+     * @param ids
+     * @return
+     */
+    //注意这个删除既可以删除多个员工也可以删除一个员工   即做成一个接口，不用做成两个
+    //动态sql
+    @DeleteMapping("/emps/{ids}")//注意路径参数注解
+    public Result deleteById(@PathVariable List<Integer> ids) {
+        log.info("删除的员工id：{}", ids);
+        empService.deleteById(ids);
+        return Result.success();
+
+    }
+
+    /**
+     * 9新增员工
+     *
+     * @param emp
+     * @return
+     */
+    //密码用默认的  主键自增  这两个都不用
+    @PostMapping("/emps")//请求体中的如果是json要封装到对象中  使用@RequestBody注解
+    public Result createEmp(@RequestBody Emp emp) {
+        empService.createEmp(emp);
+        return Result.success();
+
+    }
+
+    //修改员工信息  也是分为两个接口  先根据id查询，用于数据回显 再update
+
+    /**
+     * 11根据id查询员工信息
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/emps/{id}")//路径参数
+    public Result selectById(@PathVariable Integer id) {
+        log.info("员工的id{}", id);
+        Emp emp = empService.selectById(id);
+        return Result.success(emp);
+    }
+
+    /**
+     * 12根据id修改员工信息
+     *
+     * @param emp
+     * @return
+     */
+    //使用动态sql
+    @PutMapping("/emps")
+    public Result updateById(@RequestBody Emp emp) {
+        log.info("修改员工信息{}",emp.getId());
+        empService.updateById(emp);
+        return Result.success();
+    }
 }

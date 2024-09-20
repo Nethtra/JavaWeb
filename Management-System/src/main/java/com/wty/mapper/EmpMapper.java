@@ -1,6 +1,7 @@
 package com.wty.mapper;
 
 import com.wty.pojo.Emp;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -52,4 +53,36 @@ public interface EmpMapper {
      */
     //条件要使用动态sql 所以要在xml中写sql  注意在resource中创建包用/不是.
     List<Emp> realPaginatedSelect(@Param("name") String name, @Param("gender") Short gender, @Param("begin") LocalDate begin, @Param("end") LocalDate end);
+
+    /**
+     * 根据id删除员工
+     *
+     * @param ids
+     */
+    void deleteById(@Param("ids") List<Integer> ids);
+
+    /**
+     * 新增员工
+     *
+     * @param emp
+     */
+    @Insert("insert into emp (username, name, gender, image, job, entrydate, dept_id, create_time, update_time) values " +
+            "(#{username},#{name},#{gender},#{image},#{job},#{entrydate},#{deptId},#{createTime},#{updateTime})")
+    void createEmp(Emp emp);
+
+    /**
+     * 根据id查询员工
+     *
+     * @param id
+     * @return
+     */
+    @Select("select * from emp where id=#{id}")
+    Emp selectById(Integer id);
+
+    /**
+     * 根据id修改员工
+     *
+     * @param emp
+     */
+    void updateById(Emp emp);
 }
