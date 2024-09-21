@@ -5,6 +5,7 @@ import com.aliyun.oss.OSSClientBuilder;
 import com.aliyun.oss.common.auth.CredentialsProviderFactory;
 import com.aliyun.oss.common.auth.EnvironmentVariableCredentialsProvider;
 import com.aliyuncs.exceptions.ClientException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,9 +17,16 @@ import java.util.UUID;
  */
 @Component//不属于任何一层用Component
 public class AliOSSUtils {
+//这里的参数不要写死  如果用到的服务很多的话  参数管理会很麻烦  所以要参数配置化  将参数统一管理在properties文件中
+//然后使用@Value("${key}")注入（不是lombok那个）key自己规范起名
 
-    String endpoint = "https://oss-cn-guangzhou.aliyuncs.com";
-    String bucketName = "java--web-learning";
+    //    private String endpoint = "https://oss-cn-guangzhou.aliyuncs.com";
+    //    private String bucketName = "java--web-learning";
+
+    @Value("${aliyun.oss.endpoint}")
+    private String endpoint;
+    @Value("${aliyun.oss.bucketName}")
+    private String bucketName;
 
 
     /**

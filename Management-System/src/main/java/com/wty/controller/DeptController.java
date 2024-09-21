@@ -18,6 +18,7 @@ import java.util.List;
  */
 @Slf4j//使用此注解替代获取日志记录对象的代码  由lombok提供
 @RestController
+@RequestMapping("/depts")//提取路径公共的部分  可以简化书写路径
 public class DeptController {
     //    private static Logger log = (Logger) LoggerFactory.getLogger(DeptController.class);//获取日志记录对象
     //注入对象
@@ -31,7 +32,7 @@ public class DeptController {
      */
     //method指定请求方式只能为GET   RequestMethod是一个枚举类  简写GetMapping  其他的方法也是一样
     //@RequestMapping(value = "/depts", method = RequestMethod.GET)
-    @GetMapping("/depts")
+    @GetMapping//("/depts")
     public Result listDept() {
         log.info("查询部门信息");//不要用sout记录日志
         List<Dept> depts = deptService.listDept();
@@ -46,7 +47,7 @@ public class DeptController {
      * @param id
      * @return
      */
-    @DeleteMapping("/depts/{id}")//路径参数
+    @DeleteMapping("/{id}")//路径参数
     public Result deleteById(@PathVariable Integer id) {
         log.info("删除部门信息{}", id);//{}参数占位符，会被,之后的替换
         deptService.deleteById(id);
@@ -60,7 +61,7 @@ public class DeptController {
      * @return
      */
     //这里有一个问题 如果删了部门再添加的话主键是unique增长的 但前端显示的部门还是按顺序的 删除的时候要用主键id 这就对不上了
-    @PostMapping("/depts")//使用RequestBody将json封装到对象中
+    @PostMapping//("/depts")//使用RequestBody将json封装到对象中
     public Result createDept(@RequestBody Dept dept) {
         deptService.createDept(dept);
         return Result.success();
@@ -74,7 +75,7 @@ public class DeptController {
      * @param id
      * @return
      */
-    @GetMapping("/depts/{id}")
+    @GetMapping("/{id}")
     public Result selectById(@PathVariable Integer id) {
         Dept dept = deptService.selectById(id);
         return Result.success(dept);
@@ -86,7 +87,7 @@ public class DeptController {
      * @param dept
      * @return
      */
-    @PutMapping("/depts")
+    @PutMapping//("/depts")
     public Result updateById(@RequestBody Dept dept) {
         deptService.updateById(dept);
         return Result.success();
