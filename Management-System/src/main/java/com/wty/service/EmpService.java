@@ -62,4 +62,12 @@ public interface EmpService {
      * @param emp
      */
     void updateById(Emp emp);
+
+    /**
+     * 用户登陆
+     *
+     * @param emp
+     * @return
+     */
+    Emp login(Emp emp);
 }
