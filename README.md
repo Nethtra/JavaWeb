@@ -21,8 +21,8 @@ jdk11  SpringBoot2
 
 5SpringBoot-Mybatis CRUD操作
 
-6Management-System SpringBoot-Mybatis案例--员工部门管理系统 文件上传 登陆校验 全局异常处理 Spring事务管理
+6Management-System SpringBoot-Mybatis案例 员工部门管理系统 文件上传 登陆校验 全局异常处理 Spring事务管理
 
-7AOP
+7springboot-aop-quickstart AOP
 
 
