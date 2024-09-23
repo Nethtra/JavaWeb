@@ -14,6 +14,10 @@ mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: true
+#    开启Spring事务管理的日志
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: debug
 
 aliyun:
   oss:
