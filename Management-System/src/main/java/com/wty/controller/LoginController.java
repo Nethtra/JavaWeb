@@ -36,13 +36,15 @@ public class LoginController {
     @PostMapping("/login")
     public Result login(@RequestBody Emp emp) {
         log.info("登陆用户信息{}", emp);
-        Emp e = empService.login(emp);
+        Emp e = empService.login(emp);//查找是否有该员工
 //看接口文档描述  如果登陆成功就要返回jwt令牌  前端下次请求会在请求头中携带
         if (e != null) {
             Map<String, Object> claims = new HashMap<>();
-            claims.put("id", emp.getId());//设置要在PayLoad的信息 跟前端规定好
-            claims.put("name", emp.getName());
-            claims.put("username", emp.getUsername());
+
+            //注意下面是e.getId()  一开始都弄成emp了 emp中没有id信息
+            claims.put("id", e.getId());//设置要在PayLoad的信息 跟前端规定好
+            claims.put("name", e.getName());
+            claims.put("username", e.getUsername());
             String jwt = JwtUtils.generateJwt(claims);//登陆成功获取gwt令牌
             return Result.success(jwt);//返回
             //apifox测试

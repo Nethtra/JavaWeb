@@ -1,5 +1,6 @@
 package com.wty.controller;
 
+import com.wty.anno.Log;
 import com.wty.pojo.Emp;
 import com.wty.pojo.PageBean;
 import com.wty.pojo.Result;
@@ -76,6 +77,7 @@ public class EmpController {
      */
     //注意这个删除既可以删除多个员工也可以删除一个员工   即做成一个接口，不用做成两个
     //动态sql
+    @Log
     @DeleteMapping("/emps/{ids}")//注意路径参数注解
     public Result deleteById(@PathVariable List<Integer> ids) {
         log.info("删除的员工id：{}", ids);
@@ -90,6 +92,7 @@ public class EmpController {
      * @param emp
      * @return
      */
+    @Log
     //密码用默认的  主键自增  这两个都不用
     @PostMapping("/emps")//请求体中的如果是json要封装到对象中  使用@RequestBody注解
     public Result createEmp(@RequestBody Emp emp) {
@@ -120,9 +123,10 @@ public class EmpController {
      * @return
      */
     //使用动态sql
+    @Log
     @PutMapping("/emps")
     public Result updateById(@RequestBody Emp emp) {
-        log.info("修改员工信息{}",emp.getId());
+        log.info("修改员工信息{}", emp.getId());
         empService.updateById(emp);
         return Result.success();
     }

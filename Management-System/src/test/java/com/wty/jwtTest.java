@@ -39,7 +39,7 @@ public class jwtTest {
         Claims payload = Jwts.parser()
                 .setSigningKey("wtywtywtywtywtywtywtywtywtywtywtywtywtywtywtywtywtywtywtywtywtywtywtywtywty")//设置密钥
                 .build()
-                .parseSignedClaims("eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoidG9tIiwiaWQiOjEsImV4cCI6MTcyNjk5Mjg2Nn0.dugPCcNHkuA9pBCRIgalBwgj002p0IS3rQxloRT4YvQ")//放入jwt
+                .parseSignedClaims("eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoidG9tIiwiaWQiOjEsImV4cCI6MTcyNzMyOTI3Mn0.88em2BKB_OS2VgsaOq2-Oizj5uS_FZq48xWVO39Khlo")//放入jwt
                 .getPayload();//拿到Payload
         System.out.println(payload);
 

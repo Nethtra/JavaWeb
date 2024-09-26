@@ -1,5 +1,6 @@
 package com.wty.controller;
 
+import com.wty.anno.Log;
 import com.wty.pojo.Dept;
 import com.wty.pojo.Result;
 import com.wty.service.DeptService;
@@ -47,6 +48,7 @@ public class DeptController {
      * @param id
      * @return
      */
+    @Log
     @DeleteMapping("/{id}")//路径参数
     public Result deleteById(@PathVariable Integer id) {
         log.info("删除部门信息{}", id);//{}参数占位符，会被,之后的替换
@@ -61,6 +63,7 @@ public class DeptController {
      * @return
      */
     //这里有一个问题 如果删了部门再添加的话主键是unique增长的 但前端显示的部门还是按顺序的 删除的时候要用主键id 这就对不上了
+    @Log
     @PostMapping//("/depts")//使用RequestBody将json封装到对象中
     public Result createDept(@RequestBody Dept dept) {
         deptService.createDept(dept);
@@ -87,6 +90,7 @@ public class DeptController {
      * @param dept
      * @return
      */
+    @Log
     @PutMapping//("/depts")
     public Result updateById(@RequestBody Dept dept) {
         deptService.updateById(dept);

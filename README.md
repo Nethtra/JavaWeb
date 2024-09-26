@@ -25,4 +25,6 @@ jdk11  SpringBoot2
 
 7springboot-aop-quickstart AOP
 
+8SpringBoot原理 起步依赖 自动配置
+
 

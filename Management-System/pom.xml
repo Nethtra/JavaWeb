@@ -79,6 +79,11 @@
             <artifactId>fastjson2</artifactId>
             <version>2.0.51</version>
         </dependency>
+        <!--aop起步依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
     </dependencies>
     <dependencyManagement>
         <dependencies>
@@ -110,7 +115,7 @@
                 <version>${spring-boot.version}</version>
                 <configuration>
                     <mainClass>com.wty.ManagementSystemApplication</mainClass>
-                    <skip>true</skip>
+                    <!--<skip>true</skip>-->
                 </configuration>
                 <executions>
                     <execution>
