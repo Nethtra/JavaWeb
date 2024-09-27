@@ -27,4 +27,6 @@ jdk11  SpringBoot2
 
 8SpringBoot原理 起步依赖 自动配置
 
+9Management-System-Modules Maven高级 分模块设计 继承 聚合
+
 
