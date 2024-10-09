@@ -36,11 +36,12 @@ public class AliOSSUtils {
     public String upload(MultipartFile file) throws IOException, ClientException {
         EnvironmentVariableCredentialsProvider credentialsProvider = CredentialsProviderFactory.newEnvironmentVariableCredentialsProvider();
 
-        // 获取上传的文件的输入流
+        // 获取上传的文件的字节输入流
         InputStream inputStream = file.getInputStream();
 
         // 避免文件覆盖
-        String originalFilename = file.getOriginalFilename();
+        String originalFilename = file.getOriginalFilename();//获取原始文件名
+        //这是用uuid生成新的文件名 然后拼上最后的扩展名
         String fileName = UUID.randomUUID().toString() + originalFilename.substring(originalFilename.lastIndexOf("."));
 
         //上传文件到 OSS
