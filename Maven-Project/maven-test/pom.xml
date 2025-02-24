@@ -7,7 +7,7 @@
     <groupId>com.wty</groupId>
     <artifactId>maven-test</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <!--引入依赖-->
+    <!--引入依赖   通过依赖坐标-->
     <!--注意点击刷新-->
     <dependencies>
         <dependency>
