@@ -28,11 +28,11 @@ public class EmpServiceB implements EmpService {
                 emp.setGender("女的");
 
             String job = emp.getJob();
-            if (gender.equals("1"))
+            if (job.equals("1"))
                 emp.setJob("讲师");
-            else if (gender.equals("2"))
+            else if (job.equals("2"))
                 emp.setJob("班主任");
-            else if (gender.equals("3"))
+            else if (job.equals("3"))
                 emp.setJob("校长");
 
         });

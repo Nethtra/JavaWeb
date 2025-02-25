@@ -22,7 +22,7 @@ import java.util.List;
 //然后开始编写controller方法处理请求响应数据
 @RestController
 public class EmpController {
-    /*    //查看前端emp.html可以发现 在钩子方法mounted中发起异步请求 请求路径使listEmp 且没有携带参数
+    /*    //查看前端emp.html可以发现 在钩子方法mounted中发起异步请求 请求路径是listEmp 且没有携带参数
         @RequestMapping("/listEmp")
         public Result listEmp() {
             //总体思路
@@ -53,11 +53,11 @@ public class EmpController {
                     emp.setGender("女");
 
                 String job = emp.getJob();
-                if (gender.equals("1"))
+                if (job.equals("1"))
                     emp.setJob("讲师");
-                else if (gender.equals("2"))
+                else if (job.equals("2"))
                     emp.setJob("班主任");
-                else if (gender.equals("3"))
+                else if (job.equals("3"))
                     emp.setJob("校长");
 
             });
