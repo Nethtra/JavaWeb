@@ -58,11 +58,13 @@ VALUES (1, 'jinyong', '123456', '金庸', 1, '1.jpg', 4, '2000-01-01', 2, now(),
 select * from tb_emp,tb_dept;-- 多表查询时会产生笛卡尔积  因此需要消除无效的笛卡尔积
 select * from tb_emp,tb_dept where tb_emp.dept_id=tb_dept.id;
 
+
+
 # 多表查询分类
 # 内连接查询
-# 显示内连接  查询姓名和对应部门  where消除笛卡尔积
+# 隐示内连接  查询姓名和对应部门  where消除笛卡尔积
 select * from tb_emp,tb_dept where tb_emp.dept_id=tb_dept.id;
-# 隐式内连接  查询姓名和对应部门  on后消除笛卡尔积
+# 显式内连接  查询姓名和对应部门  on后消除笛卡尔积
 select tb_emp.name,tb_dept.name from tb_emp join tb_dept on tb_emp.dept_id=tb_dept.id;
 # 如果表名过长 可以起别名  但是如果起了别名的话  前后的也只能用别名
 select a.name,b.name from tb_emp a join tb_dept b on a.dept_id=b.id;
@@ -80,14 +82,19 @@ select e.name,d.name from tb_emp e right join tb_dept d on e.dept_id=d.id;
 select id from tb_dept where name='教研部';
 select * from tb_emp where dept_id=2;
 # 两者组合成子查询
-select * from tb_emp where (select id from tb_dept where name='教研部');
+select * from tb_emp where dept_id= (select id from tb_dept where name='教研部');
+select tb_emp.* from tb_emp,tb_dept where tb_emp.dept_id=tb_dept.id and tb_dept.name='教研部';
 # 2查询在方东白之后入职的员工信息 先查方东白什么时候入职的 再查之后的员工
 select entrydate from tb_emp where name='方东白';
 select * from tb_emp where entrydate>'2012-11-1';
+select e1.* from tb_emp e1 , tb_emp e2 where e1.entrydate>e2.entrydate and e2.name='方东白';
+select * from tb_emp e1 where exists(
+    select 1 from tb_emp e2 where e1.entrydate>e2.entrydate and e2.name='方东白'
+);
 # 组合
 select * from tb_emp where entrydate> (select entrydate from tb_emp where name='方东白');
 
-# 列子查询  子查询返回的结果是一列
+# 列子查询  子查询返回的结果是列
 # 查询教研部和咨询部的所有员工信息
 select id from tb_dept where name='教研部' or name='咨询部';
 select * from tb_emp where dept_id in(3,2);
@@ -107,3 +114,5 @@ select * from tb_emp where (entrydate,job)=(select entrydate,job from tb_emp whe
 select * from tb_emp where entrydate>'2006-1-1';
 # 好好理解这一句
 select e.*,d.name from (select * from tb_emp where entrydate>'2006-1-1') e left join tb_dept d on e.dept_id=d.id;
+
+

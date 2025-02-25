@@ -65,6 +65,8 @@ select name '姓 /名',entrydate 入职日期 from tb_emp;-- 如果别名中有�
 # 去重查询 distinct
 select distinct job from tb_emp;-- 可以看到有一个null 因为有一个没有分配职位
 
+
+
 # 条件查询  where
 # 使用运算符来构造条件
 # 单条件查询   为了方便先使用*
@@ -89,6 +91,9 @@ select * from tb_emp where job in(1,2,3);
 select * from tb_emp where name like'__';-- 查两个字的
 select * from tb_emp where name like '张%';-- 查姓张的
 
+
+
+
 # 聚合函数
 # 将一列数据进行纵向计算  注意只能写在select之后
 # count 三种写法 字段 常量 * 统计数量  注意不会统计null
@@ -104,11 +109,15 @@ select avg(id) from tb_emp;
 # sum
 select sum(id) from tb_emp;
 
+
+
+
 # 分组查询group by 分组字段 having 分组后条件过滤
 # 只要使用group by select的就只能是聚合函数和分组字段
 # 根据性别分组，查询男女数量
 select gender,count(*) from tb_emp group by gender;
-# 根据职位分组查询2015年以前入且职位人数大于2的职位  聚合函数的条件要在having判断
+# *根据职位分组查询2015年以前入且职位人数大于2的职位  聚合函数的条件要在having判断
+# 2015年这个条件在分组前，人数》2是分组后的筛选
 select job,count(*) from tb_emp where entrydate<='2015-1-1' group by job having count(*)>2;
 # where和having比较
 
@@ -119,7 +128,8 @@ select * from tb_emp order by entrydate desc ;-- 降序
 # 根据入职时间升序排序，如果入职时间相同根据更新时间降序排序
 select * from tb_emp order by entrydate ,update_time desc;
 
-# 分页查询 limit 起始索引，查询数
+# 分页查询
+# limit 起始索引，查询数
 # 索引从0开始     这个查询数就是每页的数量
 # 查询第一页，每页五条
 select * from tb_emp limit 0,5;
@@ -142,6 +152,7 @@ order by update_time desc
 limit 0,10;
 # 1统计男女员工数目并转换展示  if流程控制函数 if(表达式,true,false)
 select if(gender=1,'男性员工','女性员工') 性别,count(*) 总数 from tb_emp group by gender;
+select gender,count(*) from tb_emp group by gender;# 与这个比较
 # 2统计职位信息并转换展示  case流程控制函数  case 表达式 when 值 then
 select case job
            when 1 then '班主任'

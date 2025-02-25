@@ -1,6 +1,7 @@
 # ddl
 # 操作数据库
 show databases ;
+select database();
 create database if not exists db01;
 use db01;
 drop database if exists db01;
@@ -21,7 +22,7 @@ create table tb_user(
 # 数值类型 tinyint int bigint 默认有符号 如果是无符号在后面加上unsigned
 # 字符串类型 char()定长字符串  varchar()变长字符串
 # 日期类型 date  datetime
-# 字符串和日期时间类型都要加'' 或者 ""
+# 字符串和日期时间类型都要加''
 
 # 设计表案例：员工表     使用图形化界面创建该表
 # 先分析每个字段的约束和数据类型
@@ -48,6 +49,7 @@ rename table tb_emp to emp_tb;
 
 
 # 删除表
+-- delete 只能delete一行  不能delete一个单元格
 drop table if exists tb_emp;
 
 # 以上操作图形化界面操作也要会
@@ -67,7 +69,8 @@ values (null,'jerry','654321','jierui',1,null,1,'2000-1-1',now(),now());
 insert into tb_emp value (null,'jerry2','654321','jierui',1,null,1,'2000-1-1',now(),now());
 # 插入多组数据 在value后面,
 insert into tb_emp (username, name, gender, create_time, update_time)
-values ('lisi','李四',1,now(),now()),('zhangsan','张三',1,now(),now());
+values ('lisi', '李四', 1, now(), now()),
+       ('zhangsan', '张三', 1, now(), now());
 
 # update
 # 条件 where
