@@ -2,6 +2,7 @@ package com.wty.mapper;
 
 import com.wty.pojo.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -18,4 +19,8 @@ public interface UserMapper {
     @Select("select * from user")//这里定义sql语句  查询全部员工信息
     //注意配置sql提示
     public List<User> listEmp();
+
+    //多个参数 使用@Param指定名称
+    @Select("select * from user where id=#{id} and age=#{age}")
+    public User selectUserByIdAge(@Param("id") Integer id, @Param("age") Integer age);
 }

@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 //新建springboot工程   然后在新建数据库和表后   现在创建实体类
 //根据表中的字段
 
-//使用lombok简化User
+//使用lombok简化User实体类
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

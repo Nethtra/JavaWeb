@@ -18,10 +18,15 @@ class MybatisQuickstartApplicationTests {
     @Test
     public void testListUser() {
         List<User> userList = userMapper.listEmp();
-//        System.out.println(userMapper.listEmp());
         userList.stream().forEach(user -> {
             System.out.println(user);
         });
+    }
+
+    @Test
+    public void testSelectUser() {
+        User user = userMapper.selectUserByIdAge(1, 55);
+        System.out.println(user);
     }
 
 }
