@@ -71,9 +71,9 @@ public interface EmpMapper {
     //注意 **#{}不能出现在字符串中间**   所以只能使用${}拼接符号  不会生成预编译sql
     //但会产生sql注入问题  所以使用sql的concat函数
 //    @Select("select * from emp where name like '%${name}% ' and gender=#{gender} and entrydate between #{begin} and #{end} ")
-    //这里还有一个问题 如果接口中有多个参数的话，编译器不会保留参数的名字，会变成默认名字arg1 arg2等(只有一个的话不会有问题)，向sql中赋值时需要使用@param来注解 不然会出现BindingException
+    //这里还有一个问题 如果接口中有多个参数的话，编译器不会保留参数的名字，会变成默认名字arg1 arg2等(只有一个的话不会有问题)
+    // 需要使用@param注解指定名称 不然会出现BindingException
     // 但是springboot2.几版本应该已经默认解决此问题  不知道是不是阿里脚手架的原因 不行  还是得用注解
-    //@param中对应sql中的名
 
 
 //    @Select("select * from emp where name like concat('%',#{name},'%') and gender=#{gender} and entrydate between #{begin} and #{end} order by update_time desc ")
@@ -88,7 +88,7 @@ public interface EmpMapper {
 
     //动态sql  随着用户输入而变化的sql 比如查询 可能选择全部或者部分条件
     //mybatis提供动态sql标签
-    //发现上面的查询的问题  字段写死 只能传入三个条件 不能动态变化
+    //发现上面的查询的问题  字段写死 只能传入四个条件 不能动态变化
     //7动态条件查询员工信息
 
 
