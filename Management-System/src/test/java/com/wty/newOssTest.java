@@ -1,26 +1,14 @@
 package com.wty;
-
-import com.aliyun.oss.ClientException;
-import com.aliyun.oss.OSS;
+import com.aliyun.oss.*;
 import com.aliyun.oss.common.auth.*;
-import com.aliyun.oss.OSSClientBuilder;
-import com.aliyun.oss.OSSException;
+import com.aliyun.oss.common.comm.SignVersion;
 import com.aliyun.oss.model.PutObjectRequest;
 import com.aliyun.oss.model.PutObjectResult;
 import org.junit.jupiter.api.Test;
-import org.springframework.stereotype.Component;
 
-import java.io.FileInputStream;
-import java.io.InputStream;
+import java.io.File;
 
-/**
- * oss入门
- *
- * @author 王天一
- * @version 1.0
- */
-
-public class ossTest {
+public class newOssTest {
     @Test
     public static void main(String[] args) throws Exception {
         // Endpoint以华东1（杭州）为例，其它Region请按实际情况填写。
@@ -30,20 +18,33 @@ public class ossTest {
         // 填写Bucket名称，例如examplebucket。
         String bucketName = "java--web-learning";
         // 填写Object完整路径，完整路径中不能包含Bucket名称，例如exampledir/exampleobject.txt。
-        //这是上传到bucket中的路径
         String objectName = "ceshi.jpg";
         // 填写本地文件的完整路径，例如D:\\localpath\\examplefile.txt。
-        // 如果未指定本地路径，则默认从示例程序所属项目对应本地路径中上传文件流。
+        // 如果未指定本地路径，则默认从示例程序所属项目对应本地路径中上传文件。
         String filePath = "D:\\lenovo\\Desktop\\111.png";
+        // 填写Bucket所在地域。以华东1（杭州）为例，Region填写为cn-hangzhou。
+        String region = "cn-guangzhou";
 
         // 创建OSSClient实例。
-        OSS ossClient = new OSSClientBuilder().build(endpoint, credentialsProvider);
+        ClientBuilderConfiguration clientBuilderConfiguration = new ClientBuilderConfiguration();
+        clientBuilderConfiguration.setSignatureVersion(SignVersion.V4);
+        OSS ossClient = OSSClientBuilder.create()
+                .endpoint(endpoint)
+                .credentialsProvider(credentialsProvider)
+                .clientConfiguration(clientBuilderConfiguration)
+                .region(region)
+                .build();
 
         try {
-            InputStream inputStream = new FileInputStream(filePath);
             // 创建PutObjectRequest对象。
-            PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, objectName, inputStream);
-            // 创建PutObject请求。
+            PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, objectName, new File(filePath));
+            // 如果需要上传时设置存储类型和访问权限，请参考以下示例代码。
+            // ObjectMetadata metadata = new ObjectMetadata();
+            // metadata.setHeader(OSSHeaders.OSS_STORAGE_CLASS, StorageClass.Standard.toString());
+            // metadata.setObjectAcl(CannedAccessControlList.Private);
+            // putObjectRequest.setMetadata(metadata);
+
+            // 上传文件。
             PutObjectResult result = ossClient.putObject(putObjectRequest);
         } catch (OSSException oe) {
             System.out.println("Caught an OSSException, which means your request made it to OSS, "

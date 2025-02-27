@@ -31,11 +31,11 @@ public class DeptController {
      *
      * @return
      */
-    //method指定请求方式只能为GET   RequestMethod是一个枚举类  简写GetMapping  其他的方法也是一样
+    //method指定请求方式只能为GET   RequestMethod是一个枚举类  简写为GetMapping  其他的方法也是一样
     //@RequestMapping(value = "/depts", method = RequestMethod.GET)
     @GetMapping//("/depts")
     public Result listDept() {
-        log.info("查询部门信息");//不要用sout记录日志
+        log.info("查询所有部门信息");//不要用sout记录日志
         List<Dept> depts = deptService.listDept();
         return Result.success(depts);
     }//1apifox中发起请求测试

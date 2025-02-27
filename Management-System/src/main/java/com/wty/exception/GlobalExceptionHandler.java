@@ -17,7 +17,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)//指定要捕获的异常  这里捕获所有
     public Result ex(Exception ex) {
-        ex.printStackTrace();
-        return Result.error("操作失败！请联系管理员");
+        ex.printStackTrace();//打印异常堆栈信息
+        return Result.error("操作失败！请联系管理员");//返回给前端的提示
     }
 }//使用全局异常处理器后前端再出问题就会提示信息

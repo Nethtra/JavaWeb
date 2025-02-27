@@ -44,7 +44,7 @@ public class EmpController {
     }//apifox和网页验证
 
     /**
-     * 7分页条件查询
+     * 7条件分页查询
      *
      * @param name
      * @param gender

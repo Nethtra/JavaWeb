@@ -37,7 +37,8 @@ public class EmpServiceImpl implements EmpService {
         List<Emp> empList = empMapper.paginatedSelect2();//正常查询
         Page<Emp> pages = (Page<Emp>) empList;//转换为Page类型  才能用Page的方法
         return new PageBean(pages.getTotal(), pages.getResult());//封装为PageBean
-        //注意controller中的代码并不用更改，因为只是逻辑的变化    mapper中要改成正常select * from emp 插件会自动执行分页查询
+        //注意controller中的代码并不用更改，因为只是逻辑的变化
+        //mapper中要改成正常select * from emp 插件会自动执行分页查询
 
     }
 
@@ -46,7 +47,7 @@ public class EmpServiceImpl implements EmpService {
         PageHelper.startPage(page, pageSize);//设置参数
         List<Emp> empList = empMapper.realPaginatedSelect(name, gender, begin, end);//正常查询
         Page<Emp> pages = (Page<Emp>) empList;//转换为Page类型  才能用Page的方法
-        return new PageBean(pages.getTotal(), pages.getResult());//封装为PageBean
+        return new PageBean(pages.getTotal(), pages.getResult());//封装为PageBean返回
     }
 
     @Override

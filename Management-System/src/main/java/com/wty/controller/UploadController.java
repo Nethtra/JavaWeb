@@ -32,6 +32,7 @@ public class UploadController {
      */
     //注意上传是单独的一个接口而不是做到insert中 在刚才的9新增员工中 insert操作是在上传之后，所以insert之前所有的字段已经完备
     //基本思路是后端先接收上传的文件，调用工具类AliOSSUtils然后存到oss并返回给前端url，用于图像的回显，等到提交表单数据时再一并insert到mysql中
+    //最后insert到表中的是url，前端也拿到这个url用来回显（html将链接直接渲染在网页中）
     @PostMapping("/upload")//注意用的是post
     public Result upload(MultipartFile image) throws IOException, ClientException {
         String url = aliOSSUtils.upload(image);
