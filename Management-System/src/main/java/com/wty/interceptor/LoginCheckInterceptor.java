@@ -31,7 +31,7 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
         String jwt = request.getHeader("token");
         //2.1如果令牌为空或者没有令牌  hasLength这个方法会同时判断字符串为null或者空串
         if (!StringUtils.hasLength(jwt)) {
-            log.info("令牌为空");
+            log.warn("令牌为空！");
             //因为这里不是controller controller的@RestController会自动将返回对象转为json  所以要手动转json
             //使用alibaba fastjson依赖
             Result error = Result.error("NOT_LOGIN");//先拿到返回对象

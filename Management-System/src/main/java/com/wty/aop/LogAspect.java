@@ -17,13 +17,13 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 
 /**
- * 切面类  记录增删改操作日志
+ * 切面类  使用AOP记录增删改操作日志
  *
  * @author 王天一
  * @version 1.0
  */
 @Component
-@Aspect
+@Aspect//标识切面类
 @Slf4j
 public class LogAspect {
     @Autowired
@@ -66,7 +66,7 @@ public class LogAspect {
         OperateLog operateLog = new OperateLog(null, operateUser, operateTime, className, methodName, methodParams, returnValue, costTime);
         operateLogMapper.insert(operateLog);
 
-        log.info("记录操作日志{}", operateLog);
+        log.info("记录增删改操作日志{}", operateLog);
 
         return result;
 

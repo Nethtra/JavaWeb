@@ -8,6 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +19,8 @@ import java.util.List;
  * @author 王天一
  * @version 1.0
  */
+@Lazy//bean延迟初始化
+@Scope("prototype")//非单例
 @Slf4j//使用此注解替代获取日志记录对象的代码  由lombok提供
 @RestController
 @RequestMapping("/depts")//提取路径公共的部分  可以简化书写路径
