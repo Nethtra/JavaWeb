@@ -5,6 +5,7 @@
     <groupId>com.wty</groupId>
     <artifactId>Management-System-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <!--父工程打包方式pom-->
     <packaging>pom</packaging>
 
     <name>Management-System-parent</name>
@@ -12,12 +13,12 @@
 
     <!--聚合其他模块-->
     <modules>
-        <module>../Management-System-pojo</module>
-        <module>../Management-System-utils</module>
-        <module>../Management-System</module>
+        <module>Management-System-pojo</module>
+        <module>Management-System-utils</module>
+        <module>Management-System</module>
     </modules>
 
-    <!--统一管理依赖版本-->
+    <!--集中管理依赖版本-->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <lombok.version>1.18.24</lombok.version>

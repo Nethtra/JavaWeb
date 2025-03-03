@@ -27,13 +27,17 @@
 
 > Mysql
 
-5SpringBoot-Mybatis CRUD操作
+5Mybatis的CRUD操作
 
 >SpringBoot-Mybatis
 
-6SpringBoot-Mybatis案例 ——Management-System员工部门管理系统  文件上传  登陆校验  全局异常处理 Spring事务管理
+6SpringBoot-Mybatis案例 ——员工部门管理系统  文件上传  登陆校验  全局异常处理 Spring事务管理
 
-7springboot-aop-quickstart AOP
+> Management-System
+
+7 AOP
+
+> springboot-aop-quickstart
 
 8SpringBoot原理 起步依赖 自动配置
 
